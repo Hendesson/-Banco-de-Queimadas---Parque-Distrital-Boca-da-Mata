@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Banco de Queimadas - Parque Distrital Boca da Mata</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- Font Awesome deve vir antes do AwesomeMarkers -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.awesome-markers/2.0.5/leaflet.awesome-markers.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css" />
+</head>
+<body>
+    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 10px;">
+        <img src="/static/assets/logo_boca.png" alt="Logo Parque Boca da Mata" style="height: 60px;">
+        <h1 style="margin: 0;">Banco de Queimadas - Parque Distrital Boca da Mata</h1>
+    </div>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label>Data: <input type="date" name="data" required></label>
+        <label>Hora: <input type="time" name="hora" required></label>
+        <label>Latitude: <input type="text" name="latitude" id="latitude" required></label>
+        <label>Longitude: <input type="text" name="longitude" id="longitude" required></label>
+        <label>Código da Imagem: <input type="text" name="codigo" required></label>
+        <label>Foto: <input type="file" name="foto" accept="image/*" required></label>
+        <input type="hidden" name="extensao_fogo" id="extensao_fogo">
+        <button type="button" id="btn-desenhar-extensao">Desenhar Extensão</button>
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="controls" style="margin: 10px 0;"></div>
+    <div id="map" style="height: 600px; margin-top: 20px;"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Font Awesome já está no CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.awesome-markers/2.0.5/leaflet.awesome-markers.js"></script>
+    <script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
+    <script src="/static/script.js"></script>
+    <noscript>Ative o JavaScript para visualizar o mapa.</noscript>
+    <div id="debug-msg" style="color:red;"></div>
+
+    <!-- Sessão de Apoio Institucional -->
+    <section class="painel-contribuicao">
+        <h2 style="text-align:center; margin-bottom: 24px; color: #2d572c;">Apoio Institucional</h2>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 32px; margin-bottom: 20px;">
+            <div style="text-align:center;">
+                <img src="/static/assets/bd_logo.png" alt="BDQueimadas" style="height: 60px;"><br>
+                <span style="font-size: 0.95em;">BDQueimadas</span>
+            </div>
+            <div style="text-align:center;">
+                <img src="/static/assets/gpat_logo.jpg" alt="GPAT" style="height: 60px;"><br>
+                <span style="font-size: 0.95em;">GPAT: Grupo de Pesquisa em Gestão da Paisagem e Território</span>
+            </div>
+            <div style="text-align:center;">
+                <img src="/static/assets/UnB_logo.png" alt="Universidade de Brasília" style="height: 60px;"><br>
+                <span style="font-size: 0.95em;">Universidade de Brasília</span>
+            </div>
+            <div style="text-align:center;">
+                <img src="/static/assets/inpe_logo.png" alt="INPE" style="height: 60px;"><br>
+                <span style="font-size: 0.95em;">Instituto Nacional de Pesquisas Espaciais</span>
+            </div>
+            <div style="text-align:center;">
+                <img src="/static/assets/logo_boca.png" alt="Parque Distrital Boca da Mata" style="height: 60px;"><br>
+                <span style="font-size: 0.95em;">Parque Distrital Boca da Mata</span>
+            </div>
+        </div>
+        <div style="text-align:center; font-size: 1.1em; margin-top: 16px; color: #21501e;">
+            Desenvolvido por: <b>HENDESSON ALVES</b> (Programador), <b>GUILHERME MIGUEL</b> e <b>LUCAS MARÇAL</b> (Pesquisa e Revisão), 2025.<br>
+            Para a disciplina <b>Extensão em Geografia</b> da Universidade de Brasília, regida pela Profª. <b>POTIRA MEIRELLES</b>.
+        </div>
+    </section>
+</body>
+</html> 
